@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="SavingAccount">
+    <output-path>$PROJECT_DIR$/out/artifacts/SavingAccount</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="SavingAccount.jar">
+        <element id="module-output" name="SavingAccount" />
+        <element id="library" level="project" name="mssql-jdbc-7.0.0.jre10" />
+      </element>
+    </root>
+  </artifact>
+</component>
