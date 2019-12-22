@@ -8,7 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Window;
 import sample.ExternalWindow;
+import sample.Main;
 
 import java.io.IOException;
 import java.net.URL;

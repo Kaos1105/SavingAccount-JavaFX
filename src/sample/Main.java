@@ -1,21 +1,33 @@
 package sample;
 
+import Model.AlertDialog;
+import Model.SQLServerConnUtils_SQLJDBC;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class Main extends Application {
+    Stage window;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        window=primaryStage;
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/View/MainView.fxml"));
         Parent root = (Parent) loader.load();
-        primaryStage.setTitle("Màn hình chính");
-        primaryStage.setScene(new Scene(root, 450, 450));
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        window.setTitle("Màn hình chính");
+        window.setScene(new Scene(root, 450, 450));
+        window.setResizable(false);
+        window.show();
+        window.setOnCloseRequest(e->{
+            e.consume();
+            OnCloseProgram();
+        });
 //        Connection connection= DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=Demo;integratedSecurity=true;");
 //        Statement statement = connection.createStatement();
 //
@@ -33,6 +45,19 @@ public class Main extends Application {
 //            System.out.println("EmpName:" + empName);
 //        }
 //        connection.close();
+    }
+    public void OnCloseProgram()
+    {
+        try {
+            Connection conn = SQLServerConnUtils_SQLJDBC.getSQLServerConnection();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(AlertDialog.ShowConfirm("Bạn có chắc muốn thoát ?"))
+            window.close();
     }
 
 
