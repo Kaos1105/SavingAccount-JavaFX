@@ -4,11 +4,11 @@ import java.sql.ResultSet;
 import java.util.Date;
 
 public class Deposit {
-    public int ID;
-    public int AccountID;
-    public String Name;
-    public long Money;
-    public Date DateAdd;
+    private int ID;
+    private int AccountID;
+    private String Name;
+    private long Money;
+    private Date DateAdd;
 
     public int getID() {
         return ID;
@@ -38,7 +38,7 @@ public class Deposit {
         return Money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(long money) {
         Money = money;
     }
 

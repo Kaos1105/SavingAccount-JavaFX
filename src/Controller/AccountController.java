@@ -47,14 +47,14 @@ public class AccountController {
     public void InsertAccount(int[] listInt, String[] listString, Date date)
     {
         Account acc =new Account();
-        acc.TypeID=listInt[0];
-        acc.Money=listInt[1];
-        acc.Name=listString[0];
-        acc.CMND=listString[1];
-        acc.Address=listString[2];
-        acc.DateOpen=date;
+        acc.setTypeID(listInt[0]);
+        acc.setMoney(listInt[1]);
+        acc.setName(listString[0]);
+        acc.setCMND(listString[1]);
+        acc.setAddress(listString[2]);
+        acc.setDateOpen(date);
         String query ="EXEC USP_InsertSoTietKiem ? , ? , ? , ? , ? , ?";
-        DataProvider.getInstance().ExecuteNonQuery(query, new Object[]{acc.TypeID, acc.Money, acc.Name, acc.CMND, acc.Address, acc.DateOpen});
+        DataProvider.getInstance().ExecuteNonQuery(query, new Object[]{acc.getTypeID(), acc.getMoney(), acc.getName(), acc.getCMND(), acc.getAddress(), acc.getDateOpen()});
     }
     public int GetMaxAccountID()
     {

@@ -82,7 +82,7 @@ public class AccountViewController implements Initializable {
         dateOpenCol.setCellValueFactory(new PropertyValueFactory<>("DateOpen"));
         moneyCol.setCellValueFactory(new PropertyValueFactory<>("Money"));
         statusCol.setCellValueFactory(new PropertyValueFactory<>("Status"));
-        statusCol.setCellValueFactory(c-> new SimpleStringProperty(changeStatusCell(c.getValue().Status)));
+        statusCol.setCellValueFactory(c-> new SimpleStringProperty(changeStatusCell(c.getValue().getStatus())));
         dateDueCol.setCellValueFactory(new PropertyValueFactory<>("DateDue"));
         dateCanAddCol.setCellValueFactory(new PropertyValueFactory<>("DateCanAdd"));
         dateCanWithDrawCol.setCellValueFactory(new PropertyValueFactory<>("DateCanWithDraw"));

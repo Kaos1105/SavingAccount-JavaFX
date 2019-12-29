@@ -4,10 +4,10 @@ import java.sql.ResultSet;
 import java.sql.Types;
 
 public class ReportDate {
-    public String Name;
-    public long SumAdd;
-    public long SumWithdraw;
-    public long Subtract;
+    private String Name;
+    private long SumAdd;
+    private long SumWithdraw;
+    private long Subtract;
     public String getName() {
         return Name;
     }

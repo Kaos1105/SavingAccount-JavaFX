@@ -7,17 +7,17 @@ import java.time.DateTimeException;
 import java.util.Date;
 
 public class Account {
-    public int ID;
-    public int TypeID;
-    public String Name;
-    public String CMND;
-    public String Address;
-    public Date DateOpen;
-    public long Money;
-    public boolean Status;
-    public String DateDue;
-    public Date DateCanWithDraw;
-    public Date DateCanAdd;
+    private int ID;
+    private int TypeID;
+    private String Name;
+    private String CMND;
+    private String Address;
+    private Date DateOpen;
+    private long Money;
+    private boolean Status;
+    private String DateDue;
+    private Date DateCanWithDraw;
+    private Date DateCanAdd;
 
     public int getID() {
         return ID;
@@ -75,7 +75,7 @@ public class Account {
         Money = money;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return Status;
     }
 

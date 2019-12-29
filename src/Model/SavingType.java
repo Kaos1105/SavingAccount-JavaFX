@@ -3,16 +3,16 @@ package Model;
 import java.sql.ResultSet;
 
 public class SavingType {
-    public int ID;
-    public String Name;
-    public int Period;
-    public boolean IsActive;
-    public int DateWithdraw;
-    public int MinMoney;
-    public int MinAddMoney;
-    public Object InterestRate;
-    public Object InterestRateMonth;
-    public int DateCanAdd;
+    private int ID;
+    private String Name;
+    private int Period;
+    private boolean IsActive;
+    private int DateWithdraw;
+    private int MinMoney;
+    private int MinAddMoney;
+    private Object InterestRate;
+    private Object InterestRateMonth;
+    private int DateCanAdd;
 
     public SavingType() {
 

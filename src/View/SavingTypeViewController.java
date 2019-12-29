@@ -254,15 +254,15 @@ public class SavingTypeViewController implements Initializable {
             {
                 AlertDialog.ShowAlert("Load failed");
             }
-            tBPeriodEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).Period));
-            tBRateEdit.setText(CastIfNull(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).InterestRate, tBRateEdit));
-            tBRateMonthEdit.setText(CastIfNull(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).InterestRateMonth, tBRateMonthEdit));
-            tBDateAddEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).DateCanAdd));
-            tBDateWithdrawEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).DateWithdraw));
-            tBMoneyAddEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).MinAddMoney));
-            tBMoneyEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).MinMoney));
-            tBIDEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).ID));
-            cBIsActive.setSelected(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).IsActive);
+            tBPeriodEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getPeriod()));
+            tBRateEdit.setText(CastIfNull(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getInterestRate(), tBRateEdit));
+            tBRateMonthEdit.setText(CastIfNull(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getInterestRateMonth(), tBRateMonthEdit));
+            tBDateAddEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getDateCanAdd()));
+            tBDateWithdrawEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getDateWithdraw()));
+            tBMoneyAddEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getMinAddMoney()));
+            tBMoneyEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getMinMoney()));
+            tBIDEdit.setText(String.valueOf(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getID()));
+            cBIsActive.setSelected(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).isActive());
         });
     }
     public void SetButtonEdit(ActionEvent actionEvent)
@@ -313,7 +313,7 @@ public class SavingTypeViewController implements Initializable {
     {
         if(AlertDialog.ShowConfirm("Bạn có chắc muốn xóa loại tiết kiệm này không ?"))
         {
-            if(SavingTypeController.getInstance().CheckSavingTypeInUse(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).ID)==1)
+            if(SavingTypeController.getInstance().CheckSavingTypeInUse(listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getID())==1)
             {
                 AlertDialog.ShowAlert("Loại tiết kiệm này đang được sử dụng, không thể xóa\n Hủy kích hoạt thay vì xóa");
                 return;

@@ -46,58 +46,58 @@ public class SavingTypeController {
         SavingType type = new SavingType();
         if(listStr[1]=="0")
         {
-            type.Name=listStr[0];
-            type.InterestRate= null;
-            type.InterestRateMonth=Double.parseDouble(listStr[3]);
-            type.MinMoney=Integer.parseInt(listStr[4]);
-            type.MinAddMoney=Integer.parseInt(listStr[5]);
-            type.DateCanAdd=Integer.parseInt(listStr[6]);
-            type.DateWithdraw=Integer.parseInt(listStr[7]);
-            type.IsActive=listStr[8].equals("1");
+            type.setName(listStr[0]);
+            type.setInterestRate(null);
+            type.setInterestRateMonth(Double.parseDouble(listStr[3]));
+            type.setMinMoney(Integer.parseInt(listStr[4]));
+            type.setMinAddMoney(Integer.parseInt(listStr[5]));
+            type.setDateCanAdd(Integer.parseInt(listStr[6]));
+            type.setDateWithdraw(Integer.parseInt(listStr[7]));
+            type.setActive(listStr[8].equals("1"));
         }
         else
         {
-            type.Name=listStr[0];
-            type.InterestRateMonth=null;
-            type.InterestRate=Double.parseDouble(listStr[2]);
-            type.MinMoney=Integer.parseInt(listStr[4]);
-            type.MinAddMoney=Integer.parseInt(listStr[5]);
-            type.DateCanAdd=Integer.parseInt(listStr[6]);
-            type.DateWithdraw=Integer.parseInt(listStr[7]);
-            type.IsActive=listStr[8].equals("1");
+            type.setName(listStr[0]);
+            type.setInterestRateMonth(null);
+            type.setInterestRate(Double.parseDouble(listStr[2]));
+            type.setMinMoney(Integer.parseInt(listStr[4]));
+            type.setMinAddMoney(Integer.parseInt(listStr[5]));
+            type.setDateCanAdd(Integer.parseInt(listStr[6]));
+            type.setDateWithdraw(Integer.parseInt(listStr[7]));
+            type.setActive(listStr[8].equals("1"));
         }
         String query = "EXEC USP_InsertLoaiTietKiem ? , ? , ? , ? , ? , ? , ? , ?";
-        DataProvider.getInstance().ExecuteNonQuery(query, new Object[]{type.Name, type.InterestRate, type.InterestRateMonth, type.MinMoney, type.MinAddMoney, type.DateCanAdd, type.DateWithdraw, type.IsActive});
+        DataProvider.getInstance().ExecuteNonQuery(query, new Object[]{type.getName(), type.getInterestRate(), type.getInterestRateMonth(), type.getMinMoney(), type.getMinAddMoney(), type.getDateCanAdd(), type.getDateWithdraw(), type.isActive()});
     }
     public void InsertSavingType(String[] listStr)
     {
         SavingType type = new SavingType();
         if(listStr[1]=="0")
         {
-            type.Name=listStr[0];
-            type.Period=Integer.parseInt(listStr[1]);
-            type.InterestRate= null;
-            type.InterestRateMonth=Double.parseDouble(listStr[3]);
-            type.MinMoney=Integer.parseInt(listStr[4]);
-            type.MinAddMoney=Integer.parseInt(listStr[5]);
-            type.DateCanAdd=Integer.parseInt(listStr[6]);
-            type.DateWithdraw=Integer.parseInt(listStr[7]);
-            type.IsActive=listStr[8].equals("1");
+            type.setName(listStr[0]);
+            type.setPeriod(Integer.parseInt(listStr[1]));
+            type.setInterestRate(null);
+            type.setInterestRateMonth(Double.parseDouble(listStr[3]));
+            type.setMinMoney(Integer.parseInt(listStr[4]));
+            type.setMinAddMoney(Integer.parseInt(listStr[5]));
+            type.setDateCanAdd(Integer.parseInt(listStr[6]));
+            type.setDateWithdraw(Integer.parseInt(listStr[7]));
+            type.setActive(listStr[8].equals("1"));
         }
         else
         {
-            type.Name=listStr[0];
-            type.Period=Integer.parseInt(listStr[1]);
-            type.InterestRateMonth= null;
-            type.InterestRate=Double.parseDouble(listStr[2]);
-            type.MinMoney=Integer.parseInt(listStr[4]);
-            type.MinAddMoney=Integer.parseInt(listStr[5]);
-            type.DateCanAdd=Integer.parseInt(listStr[6]);
-            type.DateWithdraw=Integer.parseInt(listStr[7]);
-            type.IsActive=listStr[8].equals("1");
+            type.setName(listStr[0]);
+            type.setPeriod(Integer.parseInt(listStr[1]));
+            type.setInterestRateMonth(null);
+            type.setInterestRate(Double.parseDouble(listStr[2]));
+            type.setMinMoney(Integer.parseInt(listStr[4]));
+            type.setMinAddMoney(Integer.parseInt(listStr[5]));
+            type.setDateCanAdd(Integer.parseInt(listStr[6]));
+            type.setDateWithdraw(Integer.parseInt(listStr[7]));
+            type.setActive(listStr[8].equals("1"));
         }
         String query = "EXEC USP_AddLoaiTietKiem ? , ? , ? , ? , ? , ? , ? , ? , ?";
-        DataProvider.getInstance().ExecuteNonQuery(query, new Object[]{ type.Name, type.Period, type.InterestRate, type.InterestRateMonth, type.MinMoney, type.MinAddMoney, type.DateCanAdd, type.DateWithdraw, type.IsActive });
+        DataProvider.getInstance().ExecuteNonQuery(query, new Object[]{type.getName(), type.getPeriod(), type.getInterestRate(), type.getInterestRateMonth(), type.getMinMoney(), type.getMinAddMoney(), type.getDateCanAdd(), type.getDateWithdraw(), type.isActive()});
     }
     public void DeleteSavingType(String str)
     {

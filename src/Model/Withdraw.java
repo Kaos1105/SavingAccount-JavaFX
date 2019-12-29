@@ -4,12 +4,12 @@ import java.sql.ResultSet;
 import java.util.Date;
 
 public class Withdraw {
-    public int ID;
-    public int AccountID;
-    public String Name;
-    public long Money;
-    public Date DateWithdraw;
-    public Boolean IsClosed;
+    private int ID;
+    private int AccountID;
+    private String Name;
+    private long Money;
+    private Date DateWithdraw;
+    private Boolean IsClosed;
 
     public int getID() {
         return ID;
@@ -37,21 +37,21 @@ public class Withdraw {
         return Money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(long money) {
         Money = money;
     }
 
-    public Date getDateAdd() {
+    public Date getDateWithdraw() {
         return DateWithdraw;
     }
 
-    public void setDateAdd(Date dateWithdraw) {
+    public void setDateWithdraw(Date dateWithdraw) {
         DateWithdraw = dateWithdraw;
     }
 
-    public Boolean getClosed() { return IsClosed; }
+    public Boolean getIsClosed() { return IsClosed; }
 
-    public void setClosed(Boolean closed) { IsClosed = closed; }
+    public void setIsClosed(Boolean closed) { IsClosed = closed; }
 
     public Withdraw()
     {

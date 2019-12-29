@@ -38,21 +38,21 @@ public class WithdrawController  {
         }
         if (list.size() == 0)
             return -1;
-        if (list.get(0).Status == false)
+        if (list.get(0).getStatus() == false)
             return -2;
-        return list.get(0).ID;
+        return list.get(0).getID();
     }
 
     public void InsertWithdraw(String[] listStr, java.sql.Date date)
     {
         Withdraw withdraw  = new Withdraw();
-        withdraw.AccountID = Integer.parseInt(listStr[0]);
-        withdraw.Name = listStr[1];
-        withdraw.Money = Integer.parseInt(listStr[2]);
-        withdraw.DateWithdraw = date;
-        withdraw.IsClosed=listStr[3].equals("1");
+        withdraw.setAccountID(Integer.parseInt(listStr[0]));
+        withdraw.setName(listStr[1]);
+        withdraw.setMoney(Integer.parseInt(listStr[2]));
+        withdraw.setDateWithdraw(date);
+        withdraw.setIsClosed(listStr[3].equals("1"));
         String query = "USP_InsertPhieuRutTien ? , ? , ? , ? , ?";
-        DataProvider.getInstance().ExecuteNonQuery(query, new Object[] { withdraw.AccountID, withdraw.Name, withdraw.Money, withdraw.DateWithdraw, withdraw.IsClosed});
+        DataProvider.getInstance().ExecuteNonQuery(query, new Object[] {withdraw.getAccountID(), withdraw.getName(), withdraw.getMoney(), withdraw.getDateWithdraw(), withdraw.getIsClosed()});
     }
 
     public ArrayList<Integer> GetMin_CurrMoney(int id)
@@ -62,10 +62,10 @@ public class WithdrawController  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        int typeID = list.get(0).TypeID;
+        int typeID = list.get(0).getTypeID();
         String query = "select SoTienGuiToiThieu from LoaiTietKiem where MaLoaiTietKiem = " + typeID;
         int minMoney = (int)DataProvider.getInstance().ExecuteScalar(query, null);
-        int currMoney = (int) list.get(0).Money;
+        int currMoney = (int) list.get(0).getMoney();
         ArrayList<Integer> listInt = new ArrayList<>();
         listInt.add(minMoney);
         listInt.add(currMoney);
@@ -109,7 +109,7 @@ public class WithdrawController  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        int typeID = list.get(0).TypeID;
+        int typeID = list.get(0).getTypeID();
         String query = "select KyHan from LoaiTietKiem where MaLoaiTietKiem = " + typeID;
         int periodDate = (int)DataProvider.getInstance().ExecuteScalar(query, null);
         return periodDate;
@@ -125,9 +125,9 @@ public class WithdrawController  {
             e.printStackTrace();
         }
         int period = WithdrawController.getInstance().GetPeriod(id);
-        int money = (int) list.get(0).Money;
-        int typeId = list.get(0).TypeID;
-        Date dateCanWithdraw = list.get(0).DateCanWithDraw;
+        int money = (int) list.get(0).getMoney();
+        int typeId = list.get(0).getTypeID();
+        Date dateCanWithdraw = list.get(0).getDateCanWithDraw();
         if (dateCanWithdraw.compareTo(dateWithdraw) <=0)
         {
             if(period>0)
@@ -136,7 +136,7 @@ public class WithdrawController  {
                 double interestRate= (double)DataProvider.getInstance().ExecuteScalar(query, null);
                 Date result= null;
                 try {
-                    result = new SimpleDateFormat("yyyy-MM-dd").parse(list.get(0).DateDue);
+                    result = new SimpleDateFormat("yyyy-MM-dd").parse(list.get(0).getDateDue());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -177,7 +177,7 @@ public class WithdrawController  {
             e.printStackTrace();
         }
         try {
-            Date result= new SimpleDateFormat("yyyy-MM-dd").parse(list.get(0).DateDue);
+            Date result= new SimpleDateFormat("yyyy-MM-dd").parse(list.get(0).getDateDue());
             return result;
         } catch (ParseException e) {
             e.printStackTrace();

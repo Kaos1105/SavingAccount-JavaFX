@@ -32,19 +32,19 @@ public class DepositController {
         }
         if (list.size() == 0)
             return -1;
-        if (list.get(0).Status == false)
+        if (list.get(0).getStatus() == false)
             return -2;
-        return list.get(0).ID;
+        return list.get(0).getID();
     }
     public void InsertDeposit(String[]listStr, Date date)
     {
         Deposit deposit = new Deposit();
-        deposit.AccountID = Integer.parseInt(listStr[0]);
-        deposit.Name = listStr[1];
-        deposit.Money = Integer.parseInt(listStr[2]);
-        deposit.DateAdd = date;
+        deposit.setAccountID(Integer.parseInt(listStr[0]));
+        deposit.setName(listStr[1]);
+        deposit.setMoney(Integer.parseInt(listStr[2]));
+        deposit.setDateAdd(date);
         String query = "USP_InsertPhieuGuiTien ? , ? , ? , ?";
-        DataProvider.getInstance().ExecuteNonQuery(query, new Object[] {deposit.AccountID, deposit.Name, deposit.Money, deposit.DateAdd});
+        DataProvider.getInstance().ExecuteNonQuery(query, new Object[] {deposit.getAccountID(), deposit.getName(), deposit.getMoney(), deposit.getDateAdd()});
     }
     public int GetMinMoney(int id)
     {
@@ -53,7 +53,7 @@ public class DepositController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        int typeID = list.get(0).TypeID;
+        int typeID = list.get(0).getTypeID();
         String query = "select TienGuiThemToiThieu from LoaiTietKiem where MaLoaiTietKiem = " + typeID;
         int minMoney = (int)DataProvider.getInstance().ExecuteScalar(query, null);
         return minMoney;
@@ -78,7 +78,7 @@ public class DepositController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Date dateCanAdd = list.get(0).DateCanAdd;
+        Date dateCanAdd = list.get(0).getDateCanAdd();
         return dateCanAdd;
     }
 }

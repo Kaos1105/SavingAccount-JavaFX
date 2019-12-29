@@ -68,7 +68,7 @@ public class OpenAccountViewController implements Initializable {
         try
         {
             money = Long.parseLong(moneyText.getText());
-            int minMoney = listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).MinMoney;
+            int minMoney = listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getMinMoney();
             if (money < minMoney)
             {
                 AlertDialog.ShowAlert("Số tiền mở sổ phải tối thiểu " + minMoney + " VNĐ");
@@ -125,7 +125,7 @@ public class OpenAccountViewController implements Initializable {
         }
         try
         {
-            AccountController.getInstance().InsertAccount(new int[] { listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).ID, (int)money }, new String[] { nameText.getText(), cmndText.getText(), addressText.getText() }, Date.valueOf(datePicker.getValue()));
+            AccountController.getInstance().InsertAccount(new int[] {listType.get(typeComboBox.getSelectionModel().getSelectedIndex()).getID(), (int)money }, new String[] { nameText.getText(), cmndText.getText(), addressText.getText() }, Date.valueOf(datePicker.getValue()));
             AlertDialog.ShowAlert("Mở sổ thành công");
             idText.setText(String.valueOf(AccountController.getInstance().GetMaxAccountID()));
         }

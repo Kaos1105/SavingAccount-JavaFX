@@ -110,7 +110,7 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="132.0" prefWidth="249.0">
          <children>
-            <Button fx:id="openAccountBtn" mnemonicParsing="false" onAction="#SetOpenAccountBtn" text="Mở sổ">
+            <Button fx:id="openAccountBtn" mnemonicParsing="false" onAction="#SetOpenAccountBtn" text="Danh sách khách hàng">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
