@@ -97,7 +97,7 @@ public class WithdrawViewController implements Initializable {
             {
                 if (WithdrawController.getInstance().GetPeriod(accID)>0)
                 {
-                    Date dateDue = (Date) WithdrawController.getInstance().getDueDate(accID);
+                    Date dateDue = new java.sql.Date(WithdrawController.getInstance().getDueDate(accID).getTime());
                     if (datePicker.getValue().isBefore(dateDue.toLocalDate()))
                     {
                         if (AlertDialog.ShowConfirm("Sổ có thời hạn chỉ có lãi khi tất toán sau ngày: " + dateDue.toString() + "\nBạn có chắc muốn rút tiền thay vì tất toán ?"));
